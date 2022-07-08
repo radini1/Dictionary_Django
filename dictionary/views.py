@@ -12,10 +12,12 @@ def word(request):
     meaning = dictionary.meaning(search)
     synonyms = Synonyms(search_string=search).find_synonyms()
     antonyms = Antonyms(search_string=search).find_antonyms()
+    
     context = {'synonyms': synonyms,
                'meaning': meaning,
                'antonyms': antonyms
                }
+    
     return render(request, 'word.html', context)
 
     
